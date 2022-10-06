@@ -8,6 +8,10 @@ public class VendingMachineCLI {
 	private static final String MAIN_MENU_OPTION_PURCHASE = "Purchase";
 	private static final String MAIN_MENU_OPTION_EXIT = "Exit";
 	private static final String[] MAIN_MENU_OPTIONS = { MAIN_MENU_OPTION_DISPLAY_ITEMS, MAIN_MENU_OPTION_PURCHASE, MAIN_MENU_OPTION_EXIT };
+	private static final String PURCHASE_MENU_OPTION_FEED_MONEY = "Feed Money";
+	private static final String PURCHASE_MENU_OPTION_SELECT_PRODUCT = "Select Product";
+	private static final String PURCHASE_MENU_OPTION_FINISH_TRANSACTION = "Finish Transaction";
+	private static final String[] PURCHASE_MENU_OPTIONS = {PURCHASE_MENU_OPTION_FEED_MONEY, PURCHASE_MENU_OPTION_SELECT_PRODUCT, PURCHASE_MENU_OPTION_FINISH_TRANSACTION};
 
 	private Menu menu;
 
@@ -22,6 +26,9 @@ public class VendingMachineCLI {
 			if (choice.equals(MAIN_MENU_OPTION_DISPLAY_ITEMS)) {
 				// display vending machine items
 			} else if (choice.equals(MAIN_MENU_OPTION_PURCHASE)) {
+				while(true){
+					String secondChoice = (String) menu.getChoiceFromOptions(PURCHASE_MENU_OPTIONS);
+				}
 				// do purchase
 			} else if (choice.equals(MAIN_MENU_OPTION_EXIT)){
 				//Exits vending machine
@@ -30,6 +37,8 @@ public class VendingMachineCLI {
 			}
 		}
 	}
+
+
 
 	public static void main(String[] args) {
 		Menu menu = new Menu(System.in, System.out);

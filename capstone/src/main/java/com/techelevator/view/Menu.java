@@ -9,9 +9,11 @@ public class Menu {
 
 	private PrintWriter out;
 	private Scanner in;
+	private double money = 0;
 
-
-
+	public double getMoney() {
+		return money;
+	}
 
 	public Menu(InputStream input, OutputStream output) {
 		this.out = new PrintWriter(output);
@@ -56,15 +58,15 @@ public class Menu {
 
 
 
-	public double feedMoney(){
+	public void feedMoney(){
 		Scanner moneyScanner = new Scanner(System.in);
 		System.out.println("Enter amount (1,5,10) :");
 		String moneyEntry = moneyScanner.nextLine();
 		double money = Double.parseDouble(moneyEntry);
-		if (moneyEntry == "1" || moneyEntry == "5" || moneyEntry == "10"){
-			money += money;
+		if (money == 1 || money == 5 || money == 10){
+			this.money += money;
 		}
-		return money;
+
 	}
 
 }

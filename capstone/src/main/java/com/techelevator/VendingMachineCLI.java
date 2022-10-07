@@ -28,7 +28,7 @@ public class VendingMachineCLI  {
 				// display vending machine items
 			} else if (choice.equals(MAIN_MENU_OPTION_PURCHASE)) {
 				while(true){
-					System.out.println(FEED_MONEY_CURRENT_MONEY_PROVIDED);
+					System.out.println(FEED_MONEY_CURRENT_MONEY_PROVIDED + menu.getMoney());
 					String secondChoice = (String) menu.getChoiceFromOptions(PURCHASE_MENU_OPTIONS);
 				 if(secondChoice.equals(PURCHASE_MENU_OPTION_FEED_MONEY)){
 					menu.feedMoney();

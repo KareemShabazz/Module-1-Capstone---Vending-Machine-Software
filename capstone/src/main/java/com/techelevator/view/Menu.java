@@ -12,6 +12,7 @@ public class Menu {
 
 
 
+
 	public Menu(InputStream input, OutputStream output) {
 		this.out = new PrintWriter(output);
 		this.in = new Scanner(input);
@@ -52,4 +53,18 @@ public class Menu {
 		out.print(System.lineSeparator() + "Please choose an option >>> ");
 		out.flush();
 	}
+
+
+
+	public double feedMoney(){
+		Scanner moneyScanner = new Scanner(System.in);
+		System.out.println("Enter amount (1,5,10) :");
+		String moneyEntry = moneyScanner.nextLine();
+		double money = Double.parseDouble(moneyEntry);
+		if (moneyEntry == "1" || moneyEntry == "5" || moneyEntry == "10"){
+			money += money;
+		}
+		return money;
+	}
+
 }

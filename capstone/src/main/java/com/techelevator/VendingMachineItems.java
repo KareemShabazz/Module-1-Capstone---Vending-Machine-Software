@@ -1,5 +1,8 @@
 package com.techelevator;
 
+import java.util.ArrayList;
+import java.util.List;
+
 public class VendingMachineItems {
 
     private String itemCode;
@@ -7,17 +10,18 @@ public class VendingMachineItems {
     private String itemType;
     private int itemStock = 5;
     private double itemPrice;
-    private String itemSlot;
     private String message;
 
 //Constructor
-    public VendingMachineItems(String itemCode, String itemName, String itemType, int itemStock, double itemPrice, String itemSlot){
+
+
+    public VendingMachineItems(String itemCode, String itemName, double itemPrice, String itemType ){
         this.itemCode = itemCode;
         this.itemName = itemName;
         this.itemType = itemType;
         this.itemStock = itemStock;
         this.itemPrice = itemPrice;
-        this.itemSlot = itemSlot;
+
 
     }
 
@@ -42,9 +46,6 @@ public class VendingMachineItems {
         return this.itemPrice;
     }
 
-    public String getItemSlot(){
-        return this.itemSlot;
-    }
      //Setters
 
     public void setItemCode(String itemCode) {this.itemCode = itemCode;}
@@ -63,10 +64,6 @@ public class VendingMachineItems {
 
     public void setItemStock(int itemStock){
         this.itemStock = itemStock;
-    }
-
-    public void setItemSlot(String itemSlot){
-        this.itemSlot = itemSlot;
     }
 
     public String getMessage() {

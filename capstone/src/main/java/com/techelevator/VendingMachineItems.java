@@ -2,6 +2,7 @@ package com.techelevator;
 
 public class VendingMachineItems {
 
+    private String itemCode;
     private String itemName;
     private String itemType;
     private int itemStock = 5;
@@ -10,7 +11,8 @@ public class VendingMachineItems {
     private String message;
 
 //Constructor
-    public VendingMachineItems(String itemName, String itemType, int itemStock, double itemPrice, String itemSlot){
+    public VendingMachineItems(String itemCode, String itemName, String itemType, int itemStock, double itemPrice, String itemSlot){
+        this.itemCode = itemCode;
         this.itemName = itemName;
         this.itemType = itemType;
         this.itemStock = itemStock;
@@ -20,6 +22,9 @@ public class VendingMachineItems {
     }
 
 //getters and setters
+
+
+    public String getItemCode() {return itemCode;}
 
     public String getItemName(){
         return this.itemName;
@@ -41,6 +46,9 @@ public class VendingMachineItems {
         return this.itemSlot;
     }
      //Setters
+
+    public void setItemCode(String itemCode) {this.itemCode = itemCode;}
+
     public void setItemName(String itemName){
         this.itemName = itemName;
     }

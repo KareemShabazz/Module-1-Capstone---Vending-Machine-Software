@@ -2,8 +2,8 @@ package com.techelevator;
 
 public class Gum extends VendingMachineItems{
 
-    public Gum(String itemName, String itemType, int itemStock, double itemPrice, String itemSlot) {
-        super(itemName, itemType, itemStock, itemPrice, itemSlot);
+    public Gum(String itemCode, String itemName, String itemType, int itemStock, double itemPrice, String itemSlot) {
+        super(itemCode, itemName, itemType, itemStock, itemPrice, itemSlot);
     }
 
     @Override

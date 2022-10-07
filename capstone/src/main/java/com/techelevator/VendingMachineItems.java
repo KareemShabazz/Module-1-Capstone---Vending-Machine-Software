@@ -1,5 +1,8 @@
 package com.techelevator;
 
+import java.util.ArrayList;
+import java.util.List;
+
 public class VendingMachineItems {
 
     private String itemCode;
@@ -10,7 +13,13 @@ public class VendingMachineItems {
     private String message;
 
 //Constructor
+<<<<<<< HEAD
     public VendingMachineItems(String itemCode, String itemName, double itemPrice, String itemType){
+=======
+
+
+    public VendingMachineItems(String itemCode, String itemName, double itemPrice, String itemType ){
+>>>>>>> 6434d480056d2925032fde168d70487bb7dca16c
         this.itemCode = itemCode;
         this.itemName = itemName;
         this.itemType = itemType;

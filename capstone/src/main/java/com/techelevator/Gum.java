@@ -4,6 +4,7 @@ public class Gum extends VendingMachineItems{
 
     public Gum(String itemCode, String itemName, double itemPrice, String itemType) {
         super(itemCode, itemName, itemPrice, itemType);
+<<<<<<< HEAD
 
         Gum uChews = new Gum("D1", "U-Chews", 0.85, "Gum");
         Gum littleLeague = new Gum("D2", "Little League", 0.95, "Gum");
@@ -11,6 +12,8 @@ public class Gum extends VendingMachineItems{
         Gum triplemint = new Gum("D4", "Triplemint", 0.75, "Gum");
 
 
+=======
+>>>>>>> 6434d480056d2925032fde168d70487bb7dca16c
     }
 
 

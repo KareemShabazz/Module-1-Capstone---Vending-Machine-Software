@@ -77,17 +77,17 @@ public class Menu {
 
 	}
 
-	public int moneyToCents() { //To Do
-		change = (int) money;
+	public double moneyToCents() { //To Do
+		double change = money;
 		change *= 100;
-		int quarters = 0;
-		int dimes = 0;
-		int nickels = 0;
-		quarters = change / 25;
+		int quarters;
+		int dimes;
+		int nickels;
+		quarters = (int) change / 25;
 		change -= quarters * 25;
-		dimes = change / 10;
+		dimes = (int) change / 10;
 		change -= dimes * 10;
-		nickels = change / 5;
+		nickels = (int)change / 5;
 		change -= nickels * 5;
 
 		System.out.println("Change: " + quarters + " quarters" + ", " + dimes + " dimes, " + nickels + " nickels");
@@ -119,7 +119,7 @@ public class Menu {
 		for (VendingMachineItems element : givenList) {
 			if (userInput.equals(element.getItemCode())) {
 				if (!element.getItemStock().equals("Sold Out")) {
-					System.out.println(element.getItemName() + " " + " " + element.getItemPrice() + " " + subtractFromBalance(element.getItemPrice()));
+					System.out.println(element.getItemName() + " " + " " + element.getItemPrice() + " " + subtractFromBalance(element.getItemPrice()) + " " + element.getMessage());
 					element.reduceStock();
 				} else {
 					System.out.println(element.getItemStock());

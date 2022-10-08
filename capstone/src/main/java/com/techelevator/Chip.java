@@ -6,9 +6,7 @@ public class Chip extends VendingMachineItems{
 
     }
 
-    public void getMessage(){
-        System.out.println("Crunch, Crunch, Yum");
-    }
+
 
 }
 

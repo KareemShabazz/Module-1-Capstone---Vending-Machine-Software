@@ -8,9 +8,7 @@ public class Drink extends VendingMachineItems {
 
 }
 
-    public void getMessage(){
-        System.out.println("Glug, Glug, Yum");
-    }
+
 
 }
 

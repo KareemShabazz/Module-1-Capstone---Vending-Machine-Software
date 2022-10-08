@@ -52,6 +52,10 @@ public class VendingMachineItems {
         return this.itemPrice;
     }
 
+    public String getMessage() {
+        return message;
+    }
+
      //Setters
 
     public void setItemCode(String itemCode) {this.itemCode = itemCode;}

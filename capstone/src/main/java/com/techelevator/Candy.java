@@ -7,9 +7,6 @@ public class Candy extends VendingMachineItems{
 
     }
 
-    public void getMessage(){
-        System.out.println("Munch, Munch, Yum");
-    }
 
     }
 

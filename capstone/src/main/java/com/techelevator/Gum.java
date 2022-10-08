@@ -7,9 +7,6 @@ public class Gum extends VendingMachineItems{
 
     }
 
-    public void getMessage(){
-        System.out.println("Chew, Chew, Yum");
-    }
 
 
 }

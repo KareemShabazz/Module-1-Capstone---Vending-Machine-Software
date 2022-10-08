@@ -12,15 +12,19 @@ public class VendingMachineItems {
     private double itemPrice;
     private String message;
 
+
 //Constructor
 
-    public VendingMachineItems(String itemCode, String itemName, double itemPrice, String itemType ){
+    public VendingMachineItems(String itemCode, String itemName, double itemPrice, String itemType, String message){
         this.itemCode = itemCode;
         this.itemName = itemName;
         this.itemType = itemType;
-        this.itemStock = itemStock;
         this.itemPrice = itemPrice;
+        this.itemStock = 5;
+        this.message = message;
+    }
 
+    public VendingMachineItems(){
 
     }
 
@@ -37,8 +41,11 @@ public class VendingMachineItems {
         return this.itemType;
     }
 
-    public int getItemStock(){
-        return this.itemStock;
+    public String getItemStock(){
+        if(itemStock == 0){
+            return "Sold Out";
+        }
+        return Integer.toString(itemStock);
     }
 
     public double getItemPrice(){
@@ -65,9 +72,11 @@ public class VendingMachineItems {
         this.itemStock = itemStock;
     }
 
-    public String getMessage() {
-        return null;
+    public void reduceStock(){
+        itemStock--;
     }
+
+
 
 
 }

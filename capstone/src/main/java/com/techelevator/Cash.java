@@ -25,7 +25,4 @@ import java.util.Scanner;
         return money;
 
     }
-
-
-
-} */
+*/

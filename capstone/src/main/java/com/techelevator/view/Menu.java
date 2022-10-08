@@ -4,12 +4,21 @@ import java.io.InputStream;
 import java.io.OutputStream;
 import java.io.PrintWriter;
 import java.util.Scanner;
+import java.io.*;
+import com.techelevator.Inventory;
+import com.techelevator.VendingMachineItems;
+import com.techelevator.Candy;
+import com.techelevator.Chip;
+import com.techelevator.Drink;
+import com.techelevator.Chip;
+import com.techelevator.VendingMachineCLI;
 
 public class Menu {
 
 	private PrintWriter out;
 	private Scanner in;
 	private double money = 0;
+	private int change = 0;
 
 	public double getMoney() {
 		return money;
@@ -57,7 +66,6 @@ public class Menu {
 	}
 
 
-
 	public void feedMoney(){
 		Scanner moneyScanner = new Scanner(System.in);
 		System.out.println("Enter amount (1,5,10) :");
@@ -68,5 +76,33 @@ public class Menu {
 		}
 
 	}
+
+	public int moneyToCents(){
+		change = (int) money;
+		change *= 100;
+		int quarters = 0;
+		int dimes = 0;
+		int nickels = 0;
+		quarters = change / 25;
+		change -= quarters * 25;
+		dimes = change / 10;
+		change -= dimes * 10;
+		nickels = change / 5;
+		change -= nickels * 5;
+
+		System.out.println("Change: " + quarters + " quarters" + ", " + dimes + " dimes, " + nickels + " nickels" );
+		money = 0;
+		return change;
+	}
+
+	public void purchase(){
+		if (money < 0.75){
+			System.out.println("***Insufficient funds***");
+		}
+
+
+	}
+
+
 
 }

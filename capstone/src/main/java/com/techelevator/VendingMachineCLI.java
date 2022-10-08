@@ -21,17 +21,45 @@ public class VendingMachineCLI  {
 	}
 
 	public void run() {
+		Inventory printList = new Inventory();
+		printList.convertFileToItemsList();
+
 		while (true) {
 			String choice = (String) menu.getChoiceFromOptions(MAIN_MENU_OPTIONS);
 
 			if (choice.equals(MAIN_MENU_OPTION_DISPLAY_ITEMS)) {
+				for(int i = 0; i < printList.getVendingMachineItems().size(); i++) {
+					System.out.println(printList.getVendingMachineItems().get(i).getItemCode() + "|" +
+							printList.getVendingMachineItems().get(i).getItemName() + "|" +
+							printList.getVendingMachineItems().get(i).getItemPrice() + "|" +
+							printList.getVendingMachineItems().get(i).getItemType() + "|" + "Stock = " +
+							printList.getVendingMachineItems().get(i).getItemStock());
+				}
 				// display vending machine items
+
 			} else if (choice.equals(MAIN_MENU_OPTION_PURCHASE)) {
 				while(true){
 					System.out.println(FEED_MONEY_CURRENT_MONEY_PROVIDED + menu.getMoney());
 					String secondChoice = (String) menu.getChoiceFromOptions(PURCHASE_MENU_OPTIONS);
 				 if(secondChoice.equals(PURCHASE_MENU_OPTION_FEED_MONEY)){
 					menu.feedMoney();
+				 }
+				 else if(secondChoice.equals(PURCHASE_MENU_OPTION_SELECT_PRODUCT)){
+					 if(menu.getMoney() < 0.75){
+						 menu.purchase();
+					 } else if(menu.getMoney() >= 0.75){
+					 for(int i = 0; i < printList.getVendingMachineItems().size(); i++) {
+						 System.out.println(printList.getVendingMachineItems().get(i).getItemCode() + "|" +
+								 printList.getVendingMachineItems().get(i).getItemName() + "|" +
+								 printList.getVendingMachineItems().get(i).getItemPrice() + "|" +
+								 printList.getVendingMachineItems().get(i).getItemType() + "|" + "Stock = " +
+								 printList.getVendingMachineItems().get(i).getItemStock());
+					 } }
+
+				 }
+				 else if(secondChoice.equals(PURCHASE_MENU_OPTION_FINISH_TRANSACTION)){
+					 double balance = menu.moneyToCents();
+
 				 }
 				}
 				// do purchase

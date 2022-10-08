@@ -45,17 +45,8 @@ public class VendingMachineCLI  {
 					menu.feedMoney();
 				 }
 				 else if(secondChoice.equals(PURCHASE_MENU_OPTION_SELECT_PRODUCT)){
-					 if(menu.getMoney() < 0.75){
-						 menu.purchase();
-					 } else if(menu.getMoney() >= 0.75){
-					 for(int i = 0; i < printList.getVendingMachineItems().size(); i++) {
-						 System.out.println(printList.getVendingMachineItems().get(i).getItemCode() + "|" +
-								 printList.getVendingMachineItems().get(i).getItemName() + "|" +
-								 printList.getVendingMachineItems().get(i).getItemPrice() + "|" +
-								 printList.getVendingMachineItems().get(i).getItemType() + "|" + "Stock = " +
-								 printList.getVendingMachineItems().get(i).getItemStock());
-					 } }
-
+						 menu.purchase(printList.getVendingMachineItems());
+				 menu.chooseItem(printList.getVendingMachineItems());
 				 }
 				 else if(secondChoice.equals(PURCHASE_MENU_OPTION_FINISH_TRANSACTION)){
 					 double balance = menu.moneyToCents();

@@ -73,10 +73,12 @@ public class VendingMachineItems {
     }
 
     public void reduceStock(){
-        itemStock--;
+            itemStock--;
     }
 
-
-
-
 }
+
+
+
+
+

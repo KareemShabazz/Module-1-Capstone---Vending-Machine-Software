@@ -6,10 +6,12 @@ import java.util.*;
 
 public class Inventory {
 
+
+
     File listFile = new File("C:\\Users\\Student\\workspace\\Mod 1 Capstone\\" +
             "module-1-capstone-team-3\\capstone\\vendingmachine.csv");
 
-    private Map<String,VendingMachineItems> inventoryMap = new HashMap<>();
+   /* private Map<String,VendingMachineItems> inventoryMap = new HashMap<>();*/
 
     List<VendingMachineItems> vendingMachineItems = new ArrayList<VendingMachineItems>();
 
@@ -45,20 +47,27 @@ public class Inventory {
         return vendingMachineItems;
     }
 
-    public Map<String, VendingMachineItems> getInventoryMap() {
+   /* public Map<String, VendingMachineItems> getInventoryMap() {
         return inventoryMap;
-    }
+    } */
 
-    public Map<String,VendingMachineItems> accessInventoryMap(){ //ATTENTION HERE
+   /* public Map<String,VendingMachineItems> accessInventoryMap(){ //ATTENTION HERE
         try(Scanner inventoryScanner = new Scanner(listFile)) {
             while (inventoryScanner.hasNextLine()){
                 String readInventory = inventoryScanner.nextLine();
                 String [] line = readInventory.split("|");
+                String itemCode = line[0];
+                String itemName = line[1];
+                double itemPrice = Double.parseDouble(line[2]);
+                String itemType = line[3];
+                int itemStock = 5;
+
+
             }
         } catch (FileNotFoundException e) {
             e.printStackTrace();
         } return null;
-    }
+    }*/
 
 
 

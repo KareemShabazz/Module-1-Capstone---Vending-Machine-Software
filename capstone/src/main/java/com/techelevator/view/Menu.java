@@ -21,6 +21,8 @@ public class Menu {
 	private Scanner in;
 	public double money = 0;
 	private int change = 0;
+	private String dateAndTime = LocalDateTime.now().format(DateTimeFormatter.ofPattern("MM/dd/yyyy h:mm:ss a"));
+	File logFile = new File("log.txt");
 
 	public double getMoney() {
 		return money;
@@ -76,6 +78,13 @@ public class Menu {
 		if (money == 1 || money == 5 || money == 10) {
 			this.money += money;
 		}
+		try(PrintWriter writeToLog = new PrintWriter(new FileWriter(logFile,true))) {
+			writeToLog.println(dateAndTime +" Feed money: $" + moneyEntry + " $" + this.money);
+			writeToLog.flush();
+		} catch (IOException e) {
+			e.printStackTrace();
+			System.exit(1);
+		}
 
 	}
 
@@ -93,8 +102,17 @@ public class Menu {
 		change -= nickels * 5;
 
 		System.out.println("Change: " + quarters + " quarters" + ", " + dimes + " dimes, " + nickels + " nickels");
+		try(PrintWriter writeToLog = new PrintWriter(new FileWriter(logFile,true))) {
+			writeToLog.println(dateAndTime +" Change: $" + money);
+			writeToLog.flush();
+		} catch (IOException e) {
+			e.printStackTrace();
+			System.exit(1);
+		}
 		money = 0;
+
 		return change;
+
 	}
 
 
@@ -122,8 +140,16 @@ public class Menu {
 		for (VendingMachineItems element : givenList) {
 			if (userInput.equals(element.getItemCode())) {
 				if (!element.getItemStock().equals("Sold Out")) {
-					System.out.println(element.getItemName() + " " + " " + element.getItemPrice() + " " + subtractFromBalance(element.getItemPrice()) + " " + element.getMessage());
+					System.out.println("Item:" + element.getItemName() + " " + "Price:" + element.getItemPrice() + " " + "Remaining balance:" + subtractFromBalance(element.getItemPrice()));
+					System.out.println(element.getMessage());
 					element.reduceStock();
+					try(PrintWriter writeToLog = new PrintWriter(new FileWriter(logFile,true))) {
+						writeToLog.println(dateAndTime + " " + element.getItemName() + " " + element.getItemCode() + " $" + element.getItemPrice() + " $" + money);
+						writeToLog.flush();
+					} catch (IOException e) {
+						e.printStackTrace();
+						System.exit(1);
+					}
 				} else {
 					System.out.println(element.getItemStock());
 				}

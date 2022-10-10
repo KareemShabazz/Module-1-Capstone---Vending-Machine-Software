@@ -3,6 +3,8 @@ package com.techelevator.view;
 import java.io.InputStream;
 import java.io.OutputStream;
 import java.io.PrintWriter;
+import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
@@ -87,14 +89,13 @@ public class Menu {
 		change -= quarters * 25;
 		dimes = (int) change / 10;
 		change -= dimes * 10;
-		nickels = (int)change / 5;
+		nickels = (int) change / 5;
 		change -= nickels * 5;
 
 		System.out.println("Change: " + quarters + " quarters" + ", " + dimes + " dimes, " + nickels + " nickels");
 		money = 0;
 		return change;
 	}
-
 
 
 	public void purchase(List<VendingMachineItems> givenList) {
@@ -108,7 +109,9 @@ public class Menu {
 						givenList.get(i).getItemPrice() + "|" +
 						givenList.get(i).getItemType() + "|" + "Stock = " +
 						givenList.get(i).getItemStock());
+
 			}
+
 		}
 	}
 
@@ -128,13 +131,26 @@ public class Menu {
 		}
 	}
 
-	public double subtractFromBalance(double itemPrice){
+	public double subtractFromBalance(double itemPrice) {
 		return this.money = getMoney() - itemPrice;
 
 		//Subtract price of item from money balance
 		//return money
 	}
-}
+
+	public static void writeLog (double money, double change) throws FileNotFoundException {
+		LocalDateTime dateTime = LocalDateTime.now();
+		DateTimeFormatter myFormatObj = DateTimeFormatter.ofPattern("dd/MM/yyyy hh:mm:ss a");
+		String formattedDate = dateTime.format(myFormatObj);
+
+
+		try(PrintWriter log = new PrintWriter(new FileOutputStream(new File("Log.txt"), true))) {
+			log.println(formattedDate + " " + money + " " + change);
+		}
+	}
+
+	}
+
 
 
 
